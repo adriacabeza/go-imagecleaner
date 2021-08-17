@@ -2,27 +2,49 @@
 
 This tool can take your image gallery and create a new folder with image-alike-cluster folders. It uses a perceptual image hashing algorithm and a custom threshold to cluster them. An improvement could be to add deep-learning to the scene and cluster the images based on features. To cluster the images efficently, it uses a BK-trees since checking duplicates can turn into a O(N^2) problem pretty easily.
 
-Image Cleaner was created upon a friend request. After a friends-trip, he had several pictures that looked alike (from different smartphones) and he wanted to select the best ones. He tried to use [fdupes](https://github.com/adrianlopezroche/fdupes) to start removing the exact duplicates but it didn't even work since some of the images were sent using Google Photos, Whatsapp, etc (different compression algorithms and sizes). After a quick search I found some python examples like: [duplicate images](https://github.com/, philipbl/duplicate-images) or [Fast Near Duplicate image search](https://github.com/umbertogriffo/fast-near-duplicate-image-search) but I did not find anything similar written in Go so here it is. 
+Image Cleaner was created upon a friend request. After a friends-trip, he had several pictures that looked alike (from different smartphones) and he wanted to select the best ones. He tried to use [fdupes](https://github.com/adrianlopezroche/fdupes) to start removing the exact duplicates but it didn't even work since some of the images were sent using Google Photos, Whatsapp, etc (different compression algorithms and sizes). After a quick search I found some python examples like: [duplicate images](https://github.com/philipbl/duplicate-images) or [Fast Near Duplicate image search](https://github.com/umbertogriffo/fast-near-duplicate-image-search) but I did not find anything similar written in Go so here it is. 
 
 > As a note, this is my first piece of code written in Go so it probably won't be as good as I'd like to. Any comment or improvement will be gladly received :D
 
 ## Installation
 
 To start using Image Cleaner, install Go and run ``go get``:
-``
+
+```
 go get -u github.com/adriacabeza/go-imagecleaner
-``
+```
+
 This will retrieve the library.
 
 ## Usage
 
-### CLI
 ``
 imagecleaner -imagesPath=IMAGE_PATH 
 ``
 You can use also the parameter *threshold* to set a custom distance threshold.
 
 This will create a folder called **clusters** with each image structured into cluster folders. **Note that the code only copies images, it does not remove them.**
+
+**Example**:
+
+```
+go run main.go ./cluster_utils.go ./image_utils.go -imagesPath=./test -threshold=5
+
+Starting to cluster your images from ./test
+Selected 1386 images
+ 1386 / 1386 [==========================================================================] 100.00% 22s
+Images hashed and BK-tree created
+Creating clusters
+ 1386 / 1386 [==========================================================================] 100.00% 22s
+Found 1345 clusters in 1386 images
+Clusters created
+ 1345 / 1345 [===========================================================================] 100.00% 0s
+Done
+```
+> note that all the clusters that are size 1 (just one image) are merged into a big folder of unique images
+
+
+
 
 ### Credits
 
