@@ -1,6 +1,8 @@
 <h1 align="center"> Image Cleaner
   🏞🏞 ➡ 🏞 </h1>
 
+[![made-with-Go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](http://golang.org) [![Go](https://github.com/adriacabeza/go-imagecleaner/actions/workflows/go.yml/badge.svg)](https://github.com/adriacabeza/go-imagecleaner/actions/workflows/go.yml)
+
 This tool can take your image gallery and create a new folder with image-alike-cluster folders. It uses a perceptual image hashing algorithm and a custom threshold to cluster them. An improvement could be to add deep-learning to the scene and cluster the images based on features. To cluster the images efficently, it uses a BK-trees since checking duplicates can turn into a O(N^2) problem pretty easily.
 
 <div align="center">
