@@ -18,9 +18,7 @@ This tool can take your image gallery and create a new folder with image-alike-c
 </div>
 
 
-
 Image Cleaner was created upon a friend request. After a friends-trip, he had several pictures that looked alike (from different smartphones) and he wanted to select the best ones. He tried to use [fdupes](https://github.com/adrianlopezroche/fdupes) to start removing the exact duplicates but it didn't even work since some of the images were sent using Google Photos, Whatsapp, etc (different compression algorithms and sizes). After a quick search I found some python examples like: [duplicate images](https://github.com/philipbl/duplicate-images) or [Fast Near Duplicate image search](https://github.com/umbertogriffo/fast-near-duplicate-image-search) but I did not find anything similar written in Go so here it is. 
-
 
 > As a note, this is my first piece of code written in Go so it probably won't be as good as I'd like to. Any comment or improvement will be gladly received :D
 
@@ -70,9 +68,7 @@ Done
 
 - [ ] Try another hash functions
 - [ ] Add some testing
-- [ ] Create binary
-
-
+- [x] Create binary
 
 
 ### Credits
